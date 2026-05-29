@@ -1,0 +1,280 @@
+/* ── Palette shortcuts ── */
+:root {
+  --c-purple: #5B4CF5;
+  --c-blue:   #2563EB;
+  --c-cyan:   #06B6D4;
+  --c-green:  #10B981;
+  --c-yellow: #F59E0B;
+  --c-orange: #F97316;
+  --c-pink:   #EC4899;
+  --c-red:    #EF4444;
+}
+
+/* ═══════════════════════════════════════════
+   KEYFRAME LIBRARY
+═══════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(22px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Colorful shimmer — purple → cyan → green */
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+@keyframes rainbow-shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Neon glow pulse */
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 4px 1px rgba(91,76,245,.35); }
+  33%       { box-shadow: 0 0 10px 3px rgba(6,182,212,.45); }
+  66%       { box-shadow: 0 0 10px 3px rgba(16,185,129,.45); }
+}
+
+/* Gradient border rotation */
+@keyframes border-spin {
+  to { --angle: 360deg; }
+}
+
+/* Color-pop entrance (scale + hue flash) */
+@keyframes color-pop {
+  0%   { opacity: 0; transform: scale(.85); filter: brightness(1.6) saturate(2); }
+  60%  { opacity: 1; transform: scale(1.04); filter: brightness(1.1) saturate(1.4); }
+  100% { transform: scale(1);   filter: brightness(1)   saturate(1); }
+}
+
+/* Dot pulse with color cycle */
+@keyframes dot-rainbow {
+  0%   { background: var(--c-purple); transform: scale(1); }
+  25%  { background: var(--c-cyan);   transform: scale(1.5); }
+  50%  { background: var(--c-green);  transform: scale(1); }
+  75%  { background: var(--c-pink);   transform: scale(1.5); }
+  100% { background: var(--c-purple); transform: scale(1); }
+}
+
+/* Spinning colorful loader */
+@keyframes spin-rainbow {
+  0%   { border-top-color: var(--c-purple); transform: rotate(0deg); }
+  25%  { border-top-color: var(--c-cyan); }
+  50%  { border-top-color: var(--c-green);  transform: rotate(180deg); }
+  75%  { border-top-color: var(--c-pink); }
+  100% { border-top-color: var(--c-purple); transform: rotate(360deg); }
+}
+
+/* Gradient flow for progress bar */
+@keyframes progress-flow {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Sparkle twinkle */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50%       { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+/* Seen card green sweep */
+@keyframes green-sweep {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+/* Float bob for active card */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+/* ═══════════════════════════════════════════
+   CONCEPT CARDS — staggered colorful entrance
+═══════════════════════════════════════════ */
+.concept-card {
+  animation: fadeInUp .28s cubic-bezier(.22,1,.36,1) both;
+}
+.concept-card:nth-child(1)  { animation-delay: .02s; }
+.concept-card:nth-child(2)  { animation-delay: .05s; }
+.concept-card:nth-child(3)  { animation-delay: .08s; }
+.concept-card:nth-child(4)  { animation-delay: .11s; }
+.concept-card:nth-child(5)  { animation-delay: .14s; }
+.concept-card:nth-child(6)  { animation-delay: .17s; }
+.concept-card:nth-child(7)  { animation-delay: .20s; }
+.concept-card:nth-child(8)  { animation-delay: .23s; }
+.concept-card:nth-child(9)  { animation-delay: .26s; }
+.concept-card:nth-child(10) { animation-delay: .29s; }
+.concept-card:nth-child(11) { animation-delay: .32s; }
+.concept-card:nth-child(12) { animation-delay: .35s; }
+
+/* Every 6th card gets a color-pop instead */
+.concept-card:nth-child(6n) {
+  animation-name: color-pop;
+  animation-duration: .4s;
+}
+
+/* ═══════════════════════════════════════════
+   DETAIL PANEL
+═══════════════════════════════════════════ */
+#detail.open {
+  animation: scaleIn .22s cubic-bezier(.34,1.56,.64,1) both;
+  transform-origin: top center;
+}
+
+/* ═══════════════════════════════════════════
+   FILTER TAGS
+═══════════════════════════════════════════ */
+.ftag {
+  animation: slideInDown .22s cubic-bezier(.22,1,.36,1) both;
+}
+.ftag:nth-child(1) { animation-delay: .00s; }
+.ftag:nth-child(2) { animation-delay: .04s; }
+.ftag:nth-child(3) { animation-delay: .08s; }
+.ftag:nth-child(4) { animation-delay: .12s; }
+.ftag:nth-child(5) { animation-delay: .16s; }
+.ftag:nth-child(6) { animation-delay: .20s; }
+
+/* ═══════════════════════════════════════════
+   TAB PANE CONTENT
+═══════════════════════════════════════════ */
+.tab-pane.on {
+  animation: fadeInUp .2s ease both;
+}
+
+/* ═══════════════════════════════════════════
+   SIDEBAR NAVIGATION
+═══════════════════════════════════════════ */
+.nav-btn {
+  animation: slideInRight .24s cubic-bezier(.22,1,.36,1) both;
+}
+.sidebar-group:nth-child(1) .nav-btn { animation-delay: .04s; }
+.sidebar-group:nth-child(2) .nav-btn { animation-delay: .10s; }
+.sidebar-group:nth-child(3) .nav-btn { animation-delay: .16s; }
+.sidebar-group:nth-child(4) .nav-btn { animation-delay: .22s; }
+
+/* ═══════════════════════════════════════════
+   NAV DOT — rainbow cycle when section has progress
+═══════════════════════════════════════════ */
+.nav-btn.done .nav-dot {
+  animation: dot-rainbow 2.4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   PROGRESS BAR — animated rainbow gradient
+═══════════════════════════════════════════ */
+#progress-bar {
+  background: linear-gradient(
+    90deg,
+    var(--c-purple),
+    var(--c-cyan),
+    var(--c-green),
+    var(--c-yellow),
+    var(--c-pink),
+    var(--c-purple)
+  );
+  background-size: 300% 100%;
+  animation: progress-flow 3s ease infinite;
+  transition: width .5s cubic-bezier(.4,0,.2,1);
+}
+
+/* ═══════════════════════════════════════════
+   COLORFUL SHIMMER SKELETON
+═══════════════════════════════════════════ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0eeff 0%,
+    #d4f1f9 25%,
+    #d1fae5 50%,
+    #fef9c3 75%,
+    #f0eeff 100%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ═══════════════════════════════════════════
+   RAINBOW SPINNER
+═══════════════════════════════════════════ */
+.spinner {
+  width: 18px; height: 18px;
+  border: 2.5px solid var(--border-secondary);
+  border-top-color: var(--c-purple);
+  border-radius: 50%;
+  animation: spin-rainbow 1s linear infinite;
+  display: inline-block;
+}
+
+/* ═══════════════════════════════════════════
+   ACTIVE CARD — subtle float
+═══════════════════════════════════════════ */
+.concept-card.active {
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   SEEN CARD — green shimmer sweep on border
+═══════════════════════════════════════════ */
+.concept-card.seen {
+  background: linear-gradient(
+    90deg,
+    rgba(16,185,129,.07) 0%,
+    rgba(6,182,212,.07) 50%,
+    rgba(16,185,129,.07) 100%
+  );
+  background-size: 200% 100%;
+  animation: green-sweep 4s linear infinite;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION TITLE — gradient text
+═══════════════════════════════════════════ */
+#sec-title {
+  background: linear-gradient(
+    135deg,
+    var(--c-purple) 0%,
+    var(--c-cyan) 50%,
+    var(--c-green) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow-shimmer 4s ease infinite;
+}
+
+/* ═══════════════════════════════════════════
+   REDUCED MOTION OVERRIDE
+═══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  #sec-title {
+    -webkit-text-fill-color: var(--text-primary);
+    background: none;
+  }
+}
