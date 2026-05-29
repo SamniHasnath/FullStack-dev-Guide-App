@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fullstack Dev Guide</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.x/dist/tabler-icons.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/interactions.css" />
+  <link rel="stylesheet" href="css/colors.css" />
+  <!-- Apply saved theme before first paint to avoid flash -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const sys   = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = saved || sys;
+    })();
+  </script>
+</head>
+<body>
+
+<h2 class="sr-only">Interactive fullstack developer reference covering frontend, backend, database, auth, API, and deployment</h2>
+
+<div id="app">
+
+  <!-- ── SIDEBAR ── -->
+  <nav id="sidebar">
+    <div class="sidebar-group">
+      <div class="sidebar-label">Frontend</div>
+      <button class="nav-btn active" data-s="html"><i class="ti ti-code"></i>HTML / CSS<span class="nav-dot"></span></button>
+      <button class="nav-btn" data-s="js"><i class="ti ti-bolt"></i>JavaScript<span class="nav-dot"></span></button>
+      <button class="nav-btn" data-s="react"><i class="ti ti-atom"></i>React<span class="nav-dot"></span></button>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-label">Backend</div>
+      <button class="nav-btn" data-s="node"><i class="ti ti-server"></i>Node.js<span class="nav-dot"></span></button>
+      <button class="nav-btn" data-s="sql"><i class="ti ti-database"></i>SQL / DB<span class="nav-dot"></span></button>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-label">Security</div>
+      <button class="nav-btn" data-s="auth"><i class="ti ti-lock"></i>Auth<span class="nav-dot"></span></button>
+      <button class="nav-btn" data-s="api"><i class="ti ti-api"></i>API<span class="nav-dot"></span></button>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-label">Tools</div>
+      <button class="nav-btn" data-s="git"><i class="ti ti-git-branch"></i>Git / GitHub<span class="nav-dot"></span></button>
+      <button class="nav-btn" data-s="deploy"><i class="ti ti-cloud-upload"></i>Deployment<span class="nav-dot"></span></button>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <div id="main">
+
+    <!-- Top bar -->
+    <div id="topbar">
+      <div>
+        <span id="sec-title">HTML / CSS</span>
+        <span id="sec-sub">— click any concept to explore</span>
+      </div>
+      <div id="progress-wrap">
+        <div id="progress-bar-bg"><div id="progress-bar" style="width:0%"></div></div>
+        <span id="progress-text">0 / 0</span>
+      </div>
+      <button id="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light mode" aria-label="Toggle dark mode">
+        <i class="ti ti-sun"></i>
+        <i class="ti ti-moon"></i>
+      </button>
+      <div id="search-wrap">
+        <i class="ti ti-search"></i>
+        <input id="search" type="search" placeholder="search…" autocomplete="off" />
+      </div>
+    </div>
+
+    <!-- Content area -->
+    <div id="content">
+      <div id="filter-row"></div>
+      <div id="grid"></div>
+
+      <!-- Detail panel -->
+      <div id="detail">
+        <div id="dh">
+          <div id="d-icon"></div>
+          <div>
+            <div id="d-title"></div>
+            <div id="d-cat"></div>
+          </div>
+          <div id="d-actions">
+            <button class="d-act-btn" id="mark-btn" onclick="toggleMark()">
+              <i class="ti ti-check"></i> Mark learned
+            </button>
+            <button class="d-act-btn" id="prev-btn" onclick="navConcept(-1)"><i class="ti ti-arrow-left"></i></button>
+            <button class="d-act-btn" id="next-btn" onclick="navConcept(1)"><i class="ti ti-arrow-right"></i></button>
+          </div>
+          <button id="d-close" aria-label="close" onclick="closeDetail()"><i class="ti ti-x"></i></button>
+        </div>
+
+        <div id="d-tabs">
+          <div class="d-tab on"  data-t="overview" onclick="switchTab(this)">Overview</div>
+          <div class="d-tab"     data-t="code"     onclick="switchTab(this)">Code example</div>
+          <div class="d-tab"     data-t="uses"     onclick="switchTab(this)">Use cases</div>
+          <div class="d-tab"     data-t="gotchas"  onclick="switchTab(this)">Gotchas</div>
+          <div class="d-tab"     data-t="related"  onclick="switchTab(this)">Related</div>
+        </div>
+
+        <div id="d-body">
+          <div class="tab-pane on" id="tab-overview">
+            <p id="d-explain"></p>
+            <div class="key-points" id="d-keypoints"></div>
+          </div>
+          <div class="tab-pane" id="tab-code">
+            <div class="code-block" id="d-code"></div>
+          </div>
+          <div class="tab-pane" id="tab-uses">
+            <div class="use-cases" id="d-uses"></div>
+          </div>
+          <div class="tab-pane" id="tab-gotchas">
+            <div class="gotchas" id="d-gotchas"></div>
+          </div>
+          <div class="tab-pane" id="tab-related">
+            <div class="related-list" id="d-related"></div>
+            <button class="sp-btn" id="d-ask">Ask Claude about this ↗</button>
+          </div>
+        </div>
+      </div><!-- /detail -->
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
