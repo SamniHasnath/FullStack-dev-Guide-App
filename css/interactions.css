@@ -1,0 +1,242 @@
+/* ── Ripple Effect on Buttons ── */
+.nav-btn,
+.d-act-btn,
+.ftag,
+.sp-btn,
+.rel-tag {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn::after,
+.d-act-btn::after,
+.ftag::after,
+.sp-btn::after,
+.rel-tag::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  border-radius: inherit;
+  transform: scale(0);
+  transition: transform .4s ease, opacity .4s ease;
+  pointer-events: none;
+}
+
+.nav-btn:active::after,
+.d-act-btn:active::after,
+.ftag:active::after,
+.sp-btn:active::after,
+.rel-tag:active::after {
+  transform: scale(1);
+  opacity: .08;
+  transition: transform 0s, opacity 0s;
+}
+
+/* ── Card 3-D Tilt on Hover ── */
+.concept-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.concept-card:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 6px 20px rgba(91, 76, 245, .10);
+}
+
+.concept-card:active {
+  transform: translateY(0) scale(.98);
+  transition-duration: .08s;
+}
+
+/* ── Active card accent glow ── */
+.concept-card.active {
+  box-shadow: 0 0 0 2px var(--accent), 0 4px 16px rgba(91, 76, 245, .15);
+}
+
+/* ── Sidebar nav hover glow strip ── */
+.nav-btn {
+  transition: all .18s ease;
+}
+
+.nav-btn:hover {
+  background: var(--bg-secondary);
+  padding-left: 18px;
+}
+
+.nav-btn.active {
+  background: linear-gradient(90deg, rgba(91,76,245,.08) 0%, transparent 100%);
+  border-left-color: var(--accent);
+  padding-left: 18px;
+}
+
+/* ── Filter Tag active pop ── */
+.ftag {
+  transition: all .15s cubic-bezier(.34,1.56,.64,1);
+}
+
+.ftag.on {
+  transform: scale(1.06);
+}
+
+.ftag:hover:not(.on) {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+/* ── Search input focus glow ── */
+#search {
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+#search:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(91, 76, 245, .12);
+  background: var(--bg-primary);
+}
+
+/* ── Detail Panel Tab ink slide ── */
+.d-tab {
+  position: relative;
+  transition: color .15s ease;
+}
+
+.d-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width .2s ease, left .2s ease;
+}
+
+.d-tab.on::after {
+  left: 0;
+  width: 100%;
+}
+
+.d-tab:hover:not(.on)::after {
+  left: 25%;
+  width: 50%;
+  opacity: .4;
+}
+
+/* ── Mark Learned button state flip ── */
+#mark-btn {
+  transition: all .2s cubic-bezier(.34,1.56,.64,1);
+}
+
+#mark-btn.marked {
+  transform: scale(1.05);
+}
+
+#mark-btn:active {
+  transform: scale(.95);
+}
+
+/* ── Code Block hover reveals copy hint ── */
+.code-block {
+  position: relative;
+  transition: box-shadow .18s ease;
+}
+
+.code-block:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+}
+
+/* ── Gotcha item hover highlight ── */
+.gotcha {
+  transition: background .15s ease, transform .15s ease;
+}
+
+.gotcha:hover {
+  background: #fff3cd;
+  transform: translateX(3px);
+}
+
+/* ── Use Case card hover ── */
+.use-case {
+  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+.use-case:hover {
+  background: var(--bg-tertiary);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0,0,0,.06);
+}
+
+/* ── Related tag spring bounce ── */
+.rel-tag {
+  transition: all .18s cubic-bezier(.34,1.56,.64,1);
+}
+
+.rel-tag:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 3px 10px rgba(91,76,245,.25);
+}
+
+/* ── Ask Claude button shimmer border ── */
+.sp-btn {
+  transition: all .18s ease;
+  background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+              linear-gradient(135deg, var(--border-secondary), var(--border-secondary)) border-box;
+  border: 1px solid transparent;
+}
+
+.sp-btn:hover {
+  background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+              linear-gradient(135deg, var(--accent), var(--accent-green)) border-box;
+  color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px rgba(91,76,245,.12);
+}
+
+/* ── Close button spin on hover ── */
+#d-close {
+  transition: color .15s ease, transform .2s ease;
+}
+
+#d-close:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ── Prev / Next nav arrows pulse ── */
+#prev-btn:not(:disabled):hover,
+#next-btn:not(:disabled):hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: scale(1.08);
+}
+
+/* ── Section title transition ── */
+#sec-title {
+  transition: opacity .15s ease;
+}
+
+/* ── Seen card checkmark accent ── */
+.concept-card.seen .cc-name::after {
+  content: ' ✓';
+  color: var(--accent-green);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ── Focus-visible keyboard rings ── */
+.nav-btn:focus-visible,
+.d-act-btn:focus-visible,
+.ftag:focus-visible,
+.sp-btn:focus-visible,
+.rel-tag:focus-visible,
+.concept-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
