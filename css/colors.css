@@ -1,0 +1,322 @@
+/* ═══════════════════════════════════════════════════════════════
+   colors.css — Vibrant, colorful visual treatments
+   Loaded after style.css so all overrides are intentional.
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Colorful scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #5B4CF5, #06B6D4, #10B981);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #EC4899, #F59E0B, #10B981);
+}
+
+/* ═══════════════════════════════════════════
+   SIDEBAR — section label rainbow accents
+═══════════════════════════════════════════ */
+.sidebar-group:nth-child(1) .sidebar-label { color: #5B4CF5; }
+.sidebar-group:nth-child(2) .sidebar-label { color: #10B981; }
+.sidebar-group:nth-child(3) .sidebar-label { color: #F59E0B; }
+.sidebar-group:nth-child(4) .sidebar-label { color: #06B6D4; }
+
+/* Nav button active accent — each group a different hue */
+.sidebar-group:nth-child(1) .nav-btn.active {
+  border-left-color: #5B4CF5;
+  background: linear-gradient(90deg, rgba(91,76,245,.10) 0%, transparent 100%);
+  color: #5B4CF5;
+}
+.sidebar-group:nth-child(2) .nav-btn.active {
+  border-left-color: #10B981;
+  background: linear-gradient(90deg, rgba(16,185,129,.10) 0%, transparent 100%);
+  color: #10B981;
+}
+.sidebar-group:nth-child(3) .nav-btn.active {
+  border-left-color: #F59E0B;
+  background: linear-gradient(90deg, rgba(245,158,11,.10) 0%, transparent 100%);
+  color: #9A6002;
+}
+.sidebar-group:nth-child(4) .nav-btn.active {
+  border-left-color: #06B6D4;
+  background: linear-gradient(90deg, rgba(6,182,212,.10) 0%, transparent 100%);
+  color: #0E7490;
+}
+
+/* Hover glow strip per group */
+.sidebar-group:nth-child(1) .nav-btn:hover { background: rgba(91,76,245,.06); }
+.sidebar-group:nth-child(2) .nav-btn:hover { background: rgba(16,185,129,.06); }
+.sidebar-group:nth-child(3) .nav-btn:hover { background: rgba(245,158,11,.06); }
+.sidebar-group:nth-child(4) .nav-btn:hover { background: rgba(6,182,212,.06); }
+
+/* ═══════════════════════════════════════════
+   TOP BAR — gradient title
+═══════════════════════════════════════════ */
+#topbar {
+  border-bottom: 1px solid transparent;
+  background:
+    linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+    linear-gradient(90deg, #5B4CF5 0%, #06B6D4 50%, #10B981 100%) border-box;
+}
+
+/* ═══════════════════════════════════════════
+   PROGRESS BAR TRACK — colorful bg
+═══════════════════════════════════════════ */
+#progress-bar-bg {
+  background: linear-gradient(90deg,
+    rgba(91,76,245,.15),
+    rgba(6,182,212,.15),
+    rgba(16,185,129,.15)
+  );
+  border-radius: 4px;
+}
+
+#progress-text {
+  background: linear-gradient(135deg, #5B4CF5, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   FILTER TAGS — each nth gets its own color
+═══════════════════════════════════════════ */
+.ftag:nth-child(1).on  { background: linear-gradient(135deg, #5B4CF5, #06B6D4); border-color: transparent; }
+.ftag:nth-child(2).on  { background: linear-gradient(135deg, #06B6D4, #10B981); border-color: transparent; }
+.ftag:nth-child(3).on  { background: linear-gradient(135deg, #10B981, #F59E0B); border-color: transparent; }
+.ftag:nth-child(4).on  { background: linear-gradient(135deg, #F59E0B, #F97316); border-color: transparent; }
+.ftag:nth-child(5).on  { background: linear-gradient(135deg, #EC4899, #5B4CF5); border-color: transparent; }
+.ftag:nth-child(6).on  { background: linear-gradient(135deg, #EF4444, #EC4899); border-color: transparent; }
+
+/* Hover preview tint */
+.ftag:nth-child(1):hover:not(.on) { border-color: #5B4CF5; color: #5B4CF5; }
+.ftag:nth-child(2):hover:not(.on) { border-color: #06B6D4; color: #0E7490; }
+.ftag:nth-child(3):hover:not(.on) { border-color: #10B981; color: #065F46; }
+.ftag:nth-child(4):hover:not(.on) { border-color: #F59E0B; color: #92400E; }
+.ftag:nth-child(5):hover:not(.on) { border-color: #EC4899; color: #831843; }
+.ftag:nth-child(6):hover:not(.on) { border-color: #EF4444; color: #991B1B; }
+
+/* ═══════════════════════════════════════════
+   CONCEPT CARDS — colorful top-border on hover
+═══════════════════════════════════════════ */
+.concept-card {
+  border-top: 2px solid transparent;
+  transition: border-top-color .2s ease, box-shadow .2s ease, transform .18s ease;
+}
+.concept-card:nth-child(6n+1):hover { border-top-color: #5B4CF5; box-shadow: 0 6px 20px rgba(91,76,245,.14); }
+.concept-card:nth-child(6n+2):hover { border-top-color: #06B6D4; box-shadow: 0 6px 20px rgba(6,182,212,.14); }
+.concept-card:nth-child(6n+3):hover { border-top-color: #10B981; box-shadow: 0 6px 20px rgba(16,185,129,.14); }
+.concept-card:nth-child(6n+4):hover { border-top-color: #F59E0B; box-shadow: 0 6px 20px rgba(245,158,11,.14); }
+.concept-card:nth-child(6n+5):hover { border-top-color: #EC4899; box-shadow: 0 6px 20px rgba(236,72,153,.14); }
+.concept-card:nth-child(6n+0):hover { border-top-color: #F97316; box-shadow: 0 6px 20px rgba(249,115,22,.14); }
+
+/* ── Difficulty badges — vivid gradients ── */
+.cc-diff {
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: capitalize;
+}
+.cc-diff[style*="beginner"],
+.concept-card [style*="#D1FAE5"] ~ * .cc-diff {
+  background: linear-gradient(135deg, #D1FAE5, #A7F3D0) !important;
+  color: #065F46 !important;
+}
+
+/* ═══════════════════════════════════════════
+   DETAIL PANEL — gradient header border
+═══════════════════════════════════════════ */
+#detail {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+    linear-gradient(135deg, #5B4CF5 0%, #06B6D4 40%, #10B981 70%, #EC4899 100%) border-box;
+}
+
+#dh {
+  background: linear-gradient(
+    135deg,
+    rgba(91,76,245,.04) 0%,
+    rgba(6,182,212,.04) 50%,
+    rgba(16,185,129,.04) 100%
+  );
+}
+
+/* ── Detail icon gradient bg ── */
+#d-icon {
+  background: linear-gradient(135deg, #EEEDFE, #EFF6FF) !important;
+  box-shadow: 0 2px 8px rgba(91,76,245,.15);
+}
+
+/* ── Detail title gradient ── */
+#d-title {
+  background: linear-gradient(135deg, #5B4CF5, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════
+   TABS — colorful active state per tab
+═══════════════════════════════════════════ */
+.d-tab:nth-child(1).on { color: #5B4CF5; border-bottom-color: #5B4CF5; }
+.d-tab:nth-child(2).on { color: #10B981; border-bottom-color: #10B981; }
+.d-tab:nth-child(3).on { color: #06B6D4; border-bottom-color: #06B6D4; }
+.d-tab:nth-child(4).on { color: #F59E0B; border-bottom-color: #F59E0B; }
+.d-tab:nth-child(5).on { color: #EC4899; border-bottom-color: #EC4899; }
+
+/* ═══════════════════════════════════════════
+   KEY POINTS — colorful dots
+═══════════════════════════════════════════ */
+.kp-item:nth-child(1) .kp-dot { background: #5B4CF5; }
+.kp-item:nth-child(2) .kp-dot { background: #06B6D4; }
+.kp-item:nth-child(3) .kp-dot { background: #10B981; }
+.kp-item:nth-child(4) .kp-dot { background: #F59E0B; }
+.kp-item:nth-child(5) .kp-dot { background: #EC4899; }
+.kp-item:nth-child(6) .kp-dot { background: #F97316; }
+
+/* ═══════════════════════════════════════════
+   CODE BLOCK — richer syntax colors
+═══════════════════════════════════════════ */
+.code-block {
+  background: #1a1b2e;
+  color: #e2e8f0;
+  border-color: #2d2f4a;
+}
+
+/* Override syntax highlight classes for dark bg */
+.code-block .kw  { color: #a78bfa; }   /* purple */
+.code-block .str { color: #34d399; }   /* green  */
+.code-block .cmt { color: #64748b; }   /* slate  */
+.code-block .fn  { color: #fb923c; }   /* orange */
+.code-block .num { color: #fbbf24; }   /* amber  */
+
+/* ── Code block title bar ── */
+.code-block::before {
+  content: '';
+  display: block;
+  height: 3px;
+  margin: -14px -14px 12px;
+  background: linear-gradient(90deg, #5B4CF5, #06B6D4, #10B981, #F59E0B, #EC4899);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* ═══════════════════════════════════════════
+   USE CASES — colorful icon strip per card
+═══════════════════════════════════════════ */
+.use-case:nth-child(1) { border-left: 3px solid #5B4CF5; }
+.use-case:nth-child(2) { border-left: 3px solid #06B6D4; }
+.use-case:nth-child(3) { border-left: 3px solid #10B981; }
+.use-case:nth-child(4) { border-left: 3px solid #EC4899; }
+
+.use-case:nth-child(1) .uc-title { color: #5B4CF5; }
+.use-case:nth-child(2) .uc-title { color: #0E7490; }
+.use-case:nth-child(3) .uc-title { color: #065F46; }
+.use-case:nth-child(4) .uc-title { color: #831843; }
+
+/* ═══════════════════════════════════════════
+   GOTCHAS — colorful warning strip
+═══════════════════════════════════════════ */
+.gotcha {
+  border-left: 3px solid #F59E0B;
+  background: linear-gradient(135deg, #fffbeb, #fff9f0);
+}
+.gotcha:nth-child(even) {
+  border-left-color: #F97316;
+  background: linear-gradient(135deg, #fff7ed, #fffbeb);
+}
+.gotcha .ti { color: #F59E0B; }
+.gotcha:nth-child(even) .ti { color: #F97316; }
+
+/* ═══════════════════════════════════════════
+   RELATED TAGS — rainbow palette
+═══════════════════════════════════════════ */
+.rel-tag:nth-child(6n+1):hover { background: #5B4CF5; border-color: #5B4CF5; box-shadow: 0 3px 12px rgba(91,76,245,.35); }
+.rel-tag:nth-child(6n+2):hover { background: #06B6D4; border-color: #06B6D4; box-shadow: 0 3px 12px rgba(6,182,212,.35); }
+.rel-tag:nth-child(6n+3):hover { background: #10B981; border-color: #10B981; box-shadow: 0 3px 12px rgba(16,185,129,.35); }
+.rel-tag:nth-child(6n+4):hover { background: #F59E0B; border-color: #F59E0B; box-shadow: 0 3px 12px rgba(245,158,11,.35); }
+.rel-tag:nth-child(6n+5):hover { background: #EC4899; border-color: #EC4899; box-shadow: 0 3px 12px rgba(236,72,153,.35); }
+.rel-tag:nth-child(6n+0):hover { background: #F97316; border-color: #F97316; box-shadow: 0 3px 12px rgba(249,115,22,.35); }
+
+/* ═══════════════════════════════════════════
+   MARK LEARNED — green gradient
+═══════════════════════════════════════════ */
+#mark-btn.marked {
+  background: linear-gradient(135deg, #D1FAE5, #A7F3D0);
+  color: #065F46;
+  border-color: #6EE7B7;
+  box-shadow: 0 2px 8px rgba(16,185,129,.25);
+}
+
+/* ═══════════════════════════════════════════
+   ASK CLAUDE BUTTON — gradient shimmer
+═══════════════════════════════════════════ */
+.sp-btn {
+  background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+              linear-gradient(135deg, #5B4CF5, #06B6D4, #10B981) border-box;
+  border: 1.5px solid transparent;
+  font-weight: 500;
+}
+.sp-btn:hover {
+  background: linear-gradient(135deg, rgba(91,76,245,.08), rgba(6,182,212,.08)) padding-box,
+              linear-gradient(135deg, #5B4CF5, #06B6D4, #10B981, #EC4899) border-box;
+  color: #5B4CF5;
+}
+
+/* ═══════════════════════════════════════════
+   PREV / NEXT BUTTONS — colorful on hover
+═══════════════════════════════════════════ */
+#prev-btn:not(:disabled):hover {
+  background: linear-gradient(135deg, #5B4CF5, #06B6D4);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 3px 10px rgba(91,76,245,.35);
+}
+#next-btn:not(:disabled):hover {
+  background: linear-gradient(135deg, #06B6D4, #10B981);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 3px 10px rgba(6,182,212,.35);
+}
+
+/* ═══════════════════════════════════════════
+   SEARCH INPUT — gradient focus ring
+═══════════════════════════════════════════ */
+#search:focus {
+  border-color: transparent;
+  background:
+    linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+    linear-gradient(135deg, #5B4CF5, #06B6D4) border-box;
+  box-shadow: 0 0 0 3px rgba(91,76,245,.12);
+}
+
+/* ═══════════════════════════════════════════
+   DETAIL SEEN CARD — bright green left bar
+═══════════════════════════════════════════ */
+.concept-card.seen {
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(180deg, #10B981, #06B6D4) 1;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION SUBTITLE — colourful helper text
+═══════════════════════════════════════════ */
+#sec-sub {
+  background: linear-gradient(135deg, #06B6D4, #10B981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: .85;
+}
+
+/* ═══════════════════════════════════════════
+   EMPTY STATE — colorful illustration text
+═══════════════════════════════════════════ */
+.empty {
+  background: linear-gradient(135deg, #5B4CF5, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 500;
+}
